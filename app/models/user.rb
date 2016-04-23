@@ -1,4 +1,15 @@
 class User < ActiveRecord::Base
+  # Validations
+  validates :username, presence: true, uniqueness: true
+  validates :username, length: { in: 3..20 }
+  validates :role, presence: true
+  validates :email, presence: true, uniqueness: true
+  
+  before_validation :add_default_role
+
+  ##DO I NEED THIS IF USING DEVISE?
+  has_secure_password
+
   TEMP_EMAIL_PREFIX = 'change@me'
 
   # Include default devise modules. Others available are:
@@ -17,6 +28,11 @@ class User < ActiveRecord::Base
   end
 
   private
+    ##CHANGED THE DEFAULT ROLE TO PATIENT
+    def add_default_role
+        self.role = "patient" if self.role.nil?
+    end
+
     def self.create_user(auth)
       # Get the existing user by email if the provider gives us a verified email.
       # If no verified email was provided we assign a temporary email and ask the
@@ -39,8 +55,8 @@ class User < ActiveRecord::Base
         # user.skip_confirmation!
         user.save!
       end
-      
-      # Associate the identity with the user if needed
+
+      # Associate the identity with the user if needed --DO I NEED THIS?
       if identity.user != user
         identity.user = user
         identity.save!
