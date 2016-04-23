@@ -1,14 +1,12 @@
 class User < ActiveRecord::Base
   # Validations
-  validates :username, presence: true, uniqueness: true
-  validates :username, length: { in: 3..20 }
+
   validates :role, presence: true
   validates :email, presence: true, uniqueness: true
+  validates :first_name, presence: true
+  validates :last_name, presence: true
   
   before_validation :add_default_role
-
-  ##DO I NEED THIS IF USING DEVISE?
-  has_secure_password
 
   TEMP_EMAIL_PREFIX = 'change@me'
 
@@ -30,7 +28,7 @@ class User < ActiveRecord::Base
   private
     ##CHANGED THE DEFAULT ROLE TO PATIENT - wouldn't let me: what to do when it comes to choosing role...?
     def add_default_role
-        self.role = "user" if self.role.nil?
+        self.role = "patient" if self.role.nil?
     end
 
     def self.create_user(auth)
