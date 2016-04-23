@@ -28,9 +28,9 @@ class User < ActiveRecord::Base
   end
 
   private
-    ##CHANGED THE DEFAULT ROLE TO PATIENT
+    ##CHANGED THE DEFAULT ROLE TO PATIENT - wouldn't let me: what to do when it comes to choosing role...?
     def add_default_role
-        self.role = "patient" if self.role.nil?
+        self.role = "user" if self.role.nil?
     end
 
     def self.create_user(auth)
