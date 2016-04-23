@@ -1,2 +1,36 @@
 <h1>Users#edit</h1>
 <p>Find me in app/views/users/edit.html.erb</p>
+<h1>List Service</h1>
+<%= form_for @user do |f| %>
+  <% if @user.errors.any? %>
+    <% for message in @user.errors.full_messages %>
+      <div class="alert alert-danger" role="alert">
+        <%= message %>
+      </div>
+    <% end %>
+  <% end %>
+
+  <fieldset class="form-group">
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name, class: "form-control" %>
+  </fieldset>
+  <fieldset class="form-group">
+    <%= f.label :last_name %>
+    <%= f.text_area :last_name, class: "form-control" %>
+  </fieldset>
+  <fieldset class="form-group">
+    <%= f.label :image %>
+    <%= f.text_field :image, class: "form-control" %>
+  </fieldset>
+  <fieldset class="form-group">
+    <%= f.label :email %>
+    <%= f.email_field :email, class: "form-control" %>
+  </fieldset>
+  <fieldset class="form-group">
+    <%= f.label :role %>
+    <%= f.text_field :role, class: "form-control" %>
+  </fieldset>
+
+  <%= f.submit class: "btn btn-primary" %>
+
+<% end %>

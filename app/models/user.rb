@@ -3,8 +3,7 @@ class User < ActiveRecord::Base
 
   validates :role, presence: true
   validates :email, presence: true, uniqueness: true
-  validates :first_name, presence: true
-  validates :last_name, presence: true
+
   
   before_validation :add_default_role
 
@@ -26,7 +25,6 @@ class User < ActiveRecord::Base
   end
 
   private
-    ##CHANGED THE DEFAULT ROLE TO PATIENT - wouldn't let me: what to do when it comes to choosing role...?
     def add_default_role
         self.role = "patient" if self.role.nil?
     end
