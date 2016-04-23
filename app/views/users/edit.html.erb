@@ -1,6 +1,9 @@
 <h1>Users#edit</h1>
 <p>Find me in app/views/users/edit.html.erb</p>
 <h1>List Service</h1>
+
+<!-- QUESTION SAT 1857 - Why would this result in error 'First argument in form cannot contain nil or be empty' - because the fields for that user are not saving properly?  How do I add the extra user fields - I am having to seed at the moment -->
+
 <%= form_for @user do |f| %>
   <% if @user.errors.any? %>
     <% for message in @user.errors.full_messages %>
