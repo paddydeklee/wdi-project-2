@@ -72,3 +72,11 @@ c3 = u2.consultations.create!(type_of: "Orthopaedic",
                               brief: "Ooooh me bones are chilly, such chilly bonesies anyone know how to makem warmem again brrr...?",
                               image: "http://skeletonpictures.org/large/3/Skeleton-Pictures-3.jpg")
 
+
+e1 = Enquiry.create!(
+                         type_of: "Orthopaedic",
+                         brief: "I have another problem with my bones but I want to see a specialist about this one so I have contacted you directly",
+                         image: "http://skeletonpictures.org/large/3/Skeleton-Pictures-3.jpg",
+                         sender_id: u1.id,
+                         receiver_id: u5.id)
+

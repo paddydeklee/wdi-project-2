@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 
+  type_of: MyString
+  brief: MyText
+  image: MyString
+  status: MyString
+  sender_id: 1
+  receiver_id: 1
+
+two:
+  user_id: 
+  type_of: MyString
+  brief: MyText
+  image: MyString
+  status: MyString
+  sender_id: 1
+  receiver_id: 1
