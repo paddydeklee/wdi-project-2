@@ -18,9 +18,24 @@
             
           <% end %>
 
-          <li><%= link_to current_user.name, current_user %></li>
-          <li><%= link_to "Users", users_path %></li> 
-          <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li> 
+          <li>
+            <%= link_to "List Cases", consultations_path, class: "nav-link" %>
+          </li>
+          <li>
+            <%= link_to "Add Case", new_consultation_path, class: "nav-link" %>
+          </li>
+          <li>
+          <%= link_to current_user.name, current_user %>
+          </li>
+          <li>
+          <%= link_to "Users", users_path %>
+          </li> 
+          <li>
+          <%= link_to "Doctors", doctors_path %>
+          </li> 
+          <li>
+          <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+          </li> 
       
         <% else %>
 

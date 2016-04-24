@@ -7,6 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 User.destroy_all
+Consultation.destroy_all
 
 u1 = User.create!(email: "paddy@paddy.com", 
                   password: "password", 
@@ -58,4 +59,16 @@ u6 = User.create!(email: "doctor2@paddy.com",
                   last_name: "Two", 
                   image: "http://fillmurray.com/300/305", 
                   role: "doctor")
+
+c1 = u1.consultations.create!(type_of: "Orthopaedic",
+                              brief: "I fell over yesterday and banged my knee. It's really swollen but I can't get an appointment with my GP until two weeks time. Should I go to A&E?",
+                              image: "http://teamdoctorsblog.com/wp-content/uploads/2012/05/KneePain.jpg")
+
+c2 = u1.consultations.create!(type_of: "Heart",
+                              brief: "I have very bad heartburn. I usually get a subscription but I don't want to wait to see my GP. Can I see a consultant to get a consultation?",
+                              image: "http://www.noahhealth.org/wp-content/uploads/2015/01/heartburn-2.jpg")
+
+c3 = u2.consultations.create!(type_of: "Orthopaedic",
+                              brief: "Ooooh me bones are chilly, such chilly bonesies anyone know how to makem warmem again brrr...?",
+                              image: "http://skeletonpictures.org/large/3/Skeleton-Pictures-3.jpg")
 
