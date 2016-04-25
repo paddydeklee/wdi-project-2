@@ -74,3 +74,16 @@
      .card .image img {
        border-radius: 2px 2px 0 0; }
 
+
+.comment_patient{
+  background-color: rgba(100,140,200,0.1);
+  position: right;
+}
+
+.comment_doctor{
+  background-color: red;
+  position: left;
+}
+
+
+

@@ -1,0 +1,15 @@
+<% if current_user == comment.user %>
+<div class="medium-9 columns comment_patient">
+<% else %>
+<div class="medium-9 columns">
+<% end %>
+<li>
+  <ul>
+    <li>Comment by: <%= comment.user.try(:first_name) %> <%= comment.user.try(:last_name) %></li>
+    <p><%= comment.comment %></p>
+    <p><%= link_to 'Delete Comment', comment_path(comment, commentable_type: commentable.class.to_s.underscore, commentable_id: commentable.id), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+  </ul>
+</li> 
+</div>
+
+

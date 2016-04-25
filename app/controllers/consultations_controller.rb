@@ -34,6 +34,7 @@ class ConsultationsController < ApplicationController
     @consultation = Consultation.find(params[:id])
     @users = User.where(id: @consultation.user_id)
     @doctor = User.where(id: @consultation.doctor_id)
+    @comments = @consultation.comments
   end
 
   def create

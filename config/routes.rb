@@ -29,6 +29,8 @@ Rails.application.routes.draw do
       get "accept"
     end
   end
+
+  resources :comments, only: [:create, :destroy]
   
 end
 

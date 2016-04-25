@@ -5,6 +5,8 @@ class Consultation < ActiveRecord::Base
 
   belongs_to :enquiry
 
+  acts_as_commentable
+
   validates :brief, presence: true, length: { in: 10..300 }
   validates :type_of, presence: true
 
