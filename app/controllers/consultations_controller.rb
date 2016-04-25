@@ -33,6 +33,6 @@ class ConsultationsController < ApplicationController
 
   private
   def consultation_params
-    params.require(:consultation).permit(:type_of, :brief, :image)
+    params.require(:consultation).permit(:type_of, :brief, :image, :doctor)
   end
 end

@@ -8,5 +8,18 @@ Rails.application.routes.draw do
   resources :consultations 
 
   get "/doctors", to: "users#doctors"
+
+
+  get "/inbox", to: "enquiries#inbox"
+  get "/outbox", to: "enquiries#outbox"
+
+
+  resources :enquiries, only: [] do 
+      member do
+          get "accept"
+          get "reject"
+          get "cancel"
+      end
+  end
 end
 
