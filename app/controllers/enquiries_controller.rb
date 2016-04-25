@@ -24,31 +24,22 @@ class EnquiriesController < ApplicationController
 
   def convert_to_consultation
  
-    # @service = Service.find(params[:service_id])
-    # @enquiry = @service.enquiries.new(enquiry_params)
-
     @enquiry = Enquiry.find(params[:id])
     @user = User.where(id: @enquiry.sender_id)
 
     @consultation = Consultation.new
-    puts current_user.id
-    @consultation.doctor = current_user
-    @consultation.user_id = @enquiry.user_id
-    @consultation.type_of = @enquiry.type_of
-    @consultation.brief   = @enquiry.brief
-    @consultation.image   = @enquiry.image
+    @consultation.doctor    = current_user
+    @consultation.user_id   = @enquiry.user_id
+    @consultation.type_of   = @enquiry.type_of
+    @consultation.brief     = @enquiry.brief
+    @consultation.image     = @enquiry.image
+    @consultation.status    = @enquiry.status
+    
     @consultation.save
-
-
-
-    # @enquiry = Enquiry.find(params[:id])
-    # consultation = Consultation.new
-    # consultation.new(:type_of => @enquiry.type_of,
-    #                                 :brief => @enquiry.brief,
-    #                                 :image => @enquiry.image,
-    #                                 :doctor => @enquiry.receiver_id,
-    #                                 :user => @enquiry.user)
   end
+
+  # need to do a reject method for the user where the case goes back to the case pool
+
 
   def inbox
   end

@@ -1,0 +1,23 @@
+<div class="medium-12 columns">
+  <div class="card">
+  <div class="row">
+    <div class="image medium-3 columns"> 
+    <%= image_tag @consultation.image %>
+      <span class="title"><%= @consultation.type_of %></span>
+    </div>
+    <div class="content medium-9 columns">
+      <p>Here are the details of the consulation.</p>
+      <p class="card-text">User name: <%= @consultation.user_id%></p>
+      <p class="card-text">Focus area: <%= @consultation.type_of %></p>
+      <p class="card-text">Brief description: <%= @consultation.brief %></p>
+      <p class="card-text"><small class="text-muted">Added <%= distance_of_time_in_words(Time.now, @consultation.created_at) %> ago</small></p>
+    </div>
+    <div class="action">
+      <%= link_to "View in more detail", @consultation %>
+      <%= link_to "Take case!", @consultation %>
+      <%= link_to "Accept", accept_consultation_path(@consultation), class: "btn btn-success" %>
+
+    </div>
+    </div>
+  </div>
+</div>

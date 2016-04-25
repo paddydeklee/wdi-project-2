@@ -2,7 +2,7 @@
   <nav class="top-bar" data-topbar role="navigation">
     <ul class="title-area">
       <li class="name">
-        <h1><a href="/">Devise Oauth</a></h1>
+        <h1><a href="/">Heal App</a></h1>
       </li>
       <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
       <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
@@ -15,6 +15,26 @@
           <% if current_user.image.present? %>
 
             <li><%= image_tag(current_user.image) %></li> 
+            
+          <% end %>
+
+          <% if current_user.role == "doctor" %>
+
+            <li><%= link_to "My Cases (doctor)", cases_as_doctor_path %></li> 
+            <li><%= link_to "Unnassigned", unassigned_path %></li> 
+            
+          <% end %>
+
+          <% if current_user.role == "patient" %>
+
+            <li><%= link_to "My Cases (patient)", cases_as_patient_path %></li> 
+            
+          <% end %>
+
+          <% if current_user.role == "admin" %>
+
+            <li><%= link_to "Doctor cases", cases_as_doctor_path %></li> 
+            <li><%= link_to "Patient cases", cases_as_patient_path %></li> 
             
           <% end %>
 
@@ -46,7 +66,6 @@
       
         <% else %>
 
-          <li><%= link_to "Register", new_user_registration_path %></li>
           <li><%= link_to "Join Us!", new_user_registration_path %></li>
           <li><%= link_to "Login", new_user_session_path %></li>
 

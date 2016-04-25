@@ -8,12 +8,25 @@
     <div class="content medium-9 columns">
       <p>Here are the details of the consulation.</p>
       <p class="card-text">User name: <%= consultation.user.username %></p>
+
+      <% if consultation.doctor %>
+
+       <p class="card-text">Assigned to: <%= consultation.doctor.username %></p>
+       
+        <% end %>
+     
       <p class="card-text">Focus area: <%= consultation.type_of %></p>
       <p class="card-text">Brief description: <%= consultation.brief %></p>
+      <p class="card-text">Status: <%= consultation.status %></p>
       <p class="card-text"><small class="text-muted">Added <%= distance_of_time_in_words(Time.now, consultation.created_at) %> ago</small></p>
     </div>
     <div class="action">
       <%= link_to "View in more detail", consultation%>
+      <% if current_user.role == "doctor" && consultation.doctor_id == nil %>
+
+       <%= link_to "Accept", accept_consultation_path(consultation), class: "btn btn-success" %>
+        
+      <% end %>
 
     </div>
     </div>

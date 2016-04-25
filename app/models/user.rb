@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   ##QUESTION - SHOULD THE CLASS NAME BE USER or CASE?
   has_many :consultations 
   has_many :consultations_as_doctor, class_name: "Consultation", foreign_key: "doctor_id"
-  has_many :consultations_as_patient, class_name: "Consultation", foreign_key: "patient_id"
+  has_many :consultations_as_patient, class_name: "Consultation", foreign_key: "user_id"
 
   has_many :enquiries
   has_many :enquiries_as_sender, foreign_key: "sender_id", class_name: "Enquiry"

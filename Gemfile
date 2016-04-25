@@ -4,6 +4,7 @@ ruby "2.2.3"
 gem 'devise', '3.4.1'
 gem 'omniauth', '1.2.2'
 gem 'omniauth-facebook', '3.0.0'
+gem 'acts_as_commentable', '4.0.2'
 
 gem 'foundation-rails', '5.5.1.2'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

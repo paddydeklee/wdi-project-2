@@ -7,9 +7,10 @@
     </div>
     <div class="content medium-9 columns">
       <p>Here are the details of the enquiry that was made.</p>
-      <p class="card-text">Sent by: <%= enquiry.sender_id%></p>
+      <p class="card-text">Sent by: <%= enquiry.sender_id %></p>
       <p class="card-text">Sent to: <%= enquiry.receiver_id %></p>
       <p class="card-text">Focus area: <%= enquiry.type_of %></p>
+      <p class="card-text">Status: <%= enquiry.status %></p>
       <p class="card-text">Brief description: <%= enquiry.brief %></p>
       <p class="card-text"><small class="text-muted">Added <%= distance_of_time_in_words(Time.now, enquiry.created_at) %> ago</small></p>
     </div>
