@@ -1,0 +1,21 @@
+<h1>New Enquiry</h1>
+<h3><%= @user.username %></h3>
+<%= form_for [@user, @enquiry] do |f| %>
+  <% if @enquiry.errors.any? %>
+    <% for message in @enquiry.errors.full_messages %>
+      <div class="alert alert-danger" role="alert">
+        <%= message %>
+      </div>
+    <% end %>
+  <% end %>
+
+    <fieldset class="form-group">
+      <%= f.label :details %>
+      <%= f.text_area :details, class: "form-control" %>
+    </fieldset>
+    <fieldset class="form-group">
+      <%= f.label :deadline %>
+      <%= f.date_field :deadline, class: "form-control" %>
+    </fieldset>
+    <%= f.submit class: "btn btn-primary" %>
+  <% end %>

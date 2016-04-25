@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
   root 'statics#home'
   devise_for :users, controllers: { omniauth_callbacks: 'omniauth_callbacks' }
-  resources :users, only: [:index, :show, :edit, :update]
-  resources :consultations
+  resources :users, only: [:index, :show, :edit, :update] do
+      resources :enquiries
+  end
+
+  resources :consultations 
 
   get "/doctors", to: "users#doctors"
 end

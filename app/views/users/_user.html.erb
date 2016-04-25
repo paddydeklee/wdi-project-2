@@ -11,6 +11,7 @@
         <p class="card-text"><%= user.email %></p>
         <p class="card-text"><%= user.role %></p>
         <p class="card-text"><%= user.username %></p>
+        <%= link_to "Enquire", new_user_enquiry_path(user), class: "btn-btn-primary" %>
         <p class="card-text"><small class="text-muted">Joined <%= distance_of_time_in_words(Time.now, user.created_at) %> ago</small></p>
       </div>
       <div class="action">
