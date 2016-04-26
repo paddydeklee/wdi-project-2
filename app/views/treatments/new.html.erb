@@ -1,5 +1,5 @@
 <h1>New Treatment</h1>
-<h3><%= @consultation.title %></h3>
+<h3><%= @consultation.brief %></h3>
 <%= form_for [@consultation, @treatment] do |f| %>
   <% if @treatment.errors.any? %>
     <% for message in @treatment.errors.full_messages %>
