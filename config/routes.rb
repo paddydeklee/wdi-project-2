@@ -5,7 +5,9 @@ Rails.application.routes.draw do
     resources :enquiries
   end
 
-  resources :consultations 
+  resources :consultations do
+    resources :treatments
+  end
 
   get "/doctors", to: "users#doctors"
 

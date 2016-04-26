@@ -2,6 +2,7 @@ class Consultation < ActiveRecord::Base
   belongs_to :user
   belongs_to :doctor, class_name: "User"
   belongs_to :patient, class_name: "User"
+  has_one    :treatment
 
   belongs_to :enquiry
 

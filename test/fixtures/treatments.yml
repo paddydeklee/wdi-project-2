@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  consultation_id: 
+  treatment_for: MyText
+  treatment_name: MyString
+  treatment_type: MyString
+  treatment_quantity: MyString
+  accepted: false
+  doctor_id: 
+  patient_id: 
+
+two:
+  consultation_id: 
+  treatment_for: MyText
+  treatment_name: MyString
+  treatment_type: MyString
+  treatment_quantity: MyString
+  accepted: false
+  doctor_id: 
+  patient_id: 

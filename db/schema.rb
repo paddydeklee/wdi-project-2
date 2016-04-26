@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160425174724) do
+ActiveRecord::Schema.define(version: 20160426085038) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,6 +66,19 @@ ActiveRecord::Schema.define(version: 20160425174724) do
 
   add_index "identities", ["user_id"], name: "index_identities_on_user_id", using: :btree
 
+  create_table "treatments", force: :cascade do |t|
+    t.integer  "consultation_id"
+    t.text     "treatment_for"
+    t.string   "treatment_name"
+    t.string   "treatment_type"
+    t.string   "treatment_quantity"
+    t.boolean  "accepted"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  add_index "treatments", ["consultation_id"], name: "index_treatments_on_consultation_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -92,4 +105,5 @@ ActiveRecord::Schema.define(version: 20160425174724) do
 
   add_foreign_key "consultations", "users"
   add_foreign_key "identities", "users"
+  add_foreign_key "treatments", "consultations"
 end

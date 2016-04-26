@@ -80,3 +80,10 @@ e1 = Enquiry.create!(
                          sender_id: u1.id,
                          receiver_id: u5.id)
 
+t1 = Treatment.create!(consultation_id: c1.id,
+                         treatment_for: "This patients bones are wack. They need replacing asap. It's a miracle they have lasted this long",
+                         treatment_name: "Entire bone replacement therapy",
+                         treatment_type: "Surgery",
+                         treatment_quantity: "One off",
+                         accepted: 0)
+

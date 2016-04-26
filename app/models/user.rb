@@ -5,9 +5,14 @@ class User < ActiveRecord::Base
   has_many :consultations_as_doctor, class_name: "Consultation", foreign_key: "doctor_id"
   has_many :consultations_as_patient, class_name: "Consultation", foreign_key: "user_id"
 
+  has_many :treatments_as_doctor, class_name: "Treatment", foreign_key: "doctor_id"
+  has_many :treatments_as_patient, class_name: "Treatment", foreign_key: "patient_id"
+
   has_many :enquiries
   has_many :enquiries_as_sender, foreign_key: "sender_id", class_name: "Enquiry"
   has_many :enquiries_as_receiver, foreign_key: "receiver_id", class_name: "Enquiry"
+
+
 
   # Validations
 
