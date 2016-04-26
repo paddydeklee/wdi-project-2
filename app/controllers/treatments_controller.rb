@@ -10,6 +10,7 @@ class TreatmentsController < ApplicationController
     @consultation = Consultation.find(params[:consultation_id])
     @treatment = Treatment.new(treatment_params)
     @treatment.consultation_id = @consultation.id
+    @treatment.patient_id = @consultation.user_id
 
     if @treatment.save
       flash[:success] = "Your treatment was made successfully"
@@ -23,6 +24,18 @@ class TreatmentsController < ApplicationController
   def show
   end
 
+  def inbox
+  end
+
+  def outbox
+  end
+
+  def accept
+      @treatment.accept!
+      flash[:success] = "You let your doctor know you accepted the treatment!"
+      redirect_to :back
+  end
+
 
   private
   def set_treatment
@@ -30,7 +43,7 @@ class TreatmentsController < ApplicationController
   end
 
   def treatment_params
-    params.require(:treatment).permit(:consultation_id, :treatment_type, :treatment_name, :treatment_for, :treatment_quantity)
+    params.require(:treatment).permit(:consultation_id, :treatment_type_id, :treatment_name, :treatment_for, :treatment_quantity)
   end
 
 

@@ -10,7 +10,7 @@
   <% end %>
 
   <fieldset class="form-group">
-    <%= f.label :treatment_type %>
+    <%= f.label :treatment_type_id %>
     <%= f.collection_select(:treatment_type_id, TreatmentType.all, :id, :name) %>
   </fieldset>
   <fieldset class="form-group">

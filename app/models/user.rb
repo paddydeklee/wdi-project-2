@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   has_many :consultations_as_doctor, class_name: "Consultation", foreign_key: "doctor_id"
   has_many :consultations_as_patient, class_name: "Consultation", foreign_key: "user_id"
 
+
   has_many :treatments_as_doctor, class_name: "Treatment", foreign_key: "doctor_id"
   has_many :treatments_as_patient, class_name: "Treatment", foreign_key: "patient_id"
 

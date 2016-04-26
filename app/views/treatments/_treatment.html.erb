@@ -3,8 +3,9 @@
   <div class="card">
   <div class="row">
     <div class="image medium-3 columns"> 
-    <h4>Doctor Note</h4>
-      <span class="title"><%= @treatment_type.try(:type_of) %></span>
+
+    <h4><%= treatment.treatment_type_id %></h4>
+      <span class="title"><%= treatment.treatment_type_id %></span>
     </div>
     <div class="content medium-9 columns">
       <p>Here are the details of the treatment that was recommended.</p>
@@ -17,7 +18,6 @@
     </div>
     <div class="action">
     <% if current_user.role == "patient" %>
-    <%= link_to "Reject", reject_treatment_path(treatment), class: "btn btn-danger" %>
     <%= link_to "Accept", accept_treatment_path(treatment), class: "btn btn-success" %>
     <% else %>
     <% end %>

@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   get "/inbox", to: "enquiries#inbox"
   get "/outbox", to: "enquiries#outbox"
 
+  get "/pending_treatments", to: "treatments#pending_treatments"
+
   resources :enquiries, only: [] do 
     member do
       get "accept"
