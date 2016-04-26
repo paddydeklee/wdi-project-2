@@ -18,25 +18,41 @@
             
           <% end %>
 
-          <% if current_user.role == "doctor" %>
 
-            <li><%= link_to "My Cases (doctor)", cases_as_doctor_path %></li> 
-            <li><%= link_to "Unnassigned", unassigned_path %></li> 
-            
-          <% end %>
+            <% if current_user.role == "doctor" %>
 
-          <% if current_user.role == "patient" %>
+              <li><%= link_to "My Cases (active)", cases_as_doctor_path %></li> 
+              <li><%= link_to "Unnassigned", unassigned_path %></li> 
+              
+            <% end %>
+            <% if current_user.role == "patient" %>
 
-            <li><%= link_to "My Cases (patient)", cases_as_patient_path %></li> 
-            
-          <% end %>
+              <li><%= link_to "My Cases (patient)", cases_as_patient_path %></li> 
+              
+            <% end %>
+            <% if current_user.role == "admin" %>
+              <li><%= link_to "List Cases", consultations_path, class: "nav-link" %></li>
+              <li><%= link_to "Doctor cases", cases_as_doctor_path %></li> 
+              <li><%= link_to "Patient cases", cases_as_patient_path %></li> 
+              
+            <% end %>
 
-          <% if current_user.role == "admin" %>
+          <li class="dropdownicon"><a href="#" data-dropdown="hover1" data-options="is_hover:true; hover_timeout:5000">Users</a></li>
 
-            <li><%= link_to "Doctor cases", cases_as_doctor_path %></li> 
-            <li><%= link_to "Patient cases", cases_as_patient_path %></li> 
-            
-          <% end %>
+          <ul id="hover1" class="f-dropdown" data-dropdown-content>
+            <li>
+            <%= link_to "Users", users_path %>
+            </li> 
+            <li>
+            <%= link_to "Doctors", doctors_path %>
+            </li> 
+          </ul>
+
+          
+
+          
+
+         
 
           <li class="nav-item">
             <%= link_to "Inbox", inbox_path, class: "nav-link" %>
@@ -45,21 +61,14 @@
             <%= link_to "Outbox", outbox_path, class: "nav-link" %>
           </li>
 
-          <li>
-            <%= link_to "List Cases", consultations_path, class: "nav-link" %>
-          </li>
+          
           <li>
             <%= link_to "Add Case", new_consultation_path, class: "nav-link" %>
           </li>
           <li>
           <%= link_to current_user.name, current_user %>
           </li>
-          <li>
-          <%= link_to "Users", users_path %>
-          </li> 
-          <li>
-          <%= link_to "Doctors", doctors_path %>
-          </li> 
+
           <li>
           <%= link_to "Logout", destroy_user_session_path, method: :delete %>
           </li> 

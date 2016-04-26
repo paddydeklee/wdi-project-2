@@ -11,7 +11,7 @@
 
   <fieldset class="form-group">
     <%= f.label :treatment_type %>
-    <%= f.text_field :treatment_type, class: "form-control" %>
+    <%= f.collection_select(:treatment_type_id, TreatmentType.all, :id, :name) %>
   </fieldset>
   <fieldset class="form-group">
     <%= f.label :treatment_name %>

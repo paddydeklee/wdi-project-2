@@ -27,6 +27,10 @@
    line-height: 2.63rem;
  }
 
+ .dropdownicon{
+  font-size: 14px;
+ }
+
  @import url(//fonts.googleapis.com/css?family=Roboto:400,500,300,100,700,900);
 
  html,body { // for demo only

@@ -1,0 +1,27 @@
+
+<div class="medium-12 columns">
+  <div class="card">
+  <div class="row">
+    <div class="image medium-3 columns"> 
+    <h4>Doctor Note</h4>
+      <span class="title"><%= @treatment_type.try(:type_of) %></span>
+    </div>
+    <div class="content medium-9 columns">
+      <p>Here are the details of the treatment that was recommended.</p>
+      
+      <p class="card-text">for: <%= treatment.treatment_for %></p>
+      <p class="card-text">Treatment name: <%= treatment.treatment_name %></p>
+      <p class="card-text">How much/often: <%= treatment.treatment_quantity %></p>
+      <p class="card-text">Accepted by patient? <% if treatment.accepted == nil %> <%= "No" %> <% else %><%= "Yes" %><% end %></p>
+      <p class="card-text"><small class="text-muted">Added <%= distance_of_time_in_words(Time.now, treatment.created_at) %> ago</small></p>
+    </div>
+    <div class="action">
+    <% if current_user.role == "patient" %>
+    <%= link_to "Reject", reject_treatment_path(treatment), class: "btn btn-danger" %>
+    <%= link_to "Accept", accept_treatment_path(treatment), class: "btn btn-success" %>
+    <% else %>
+    <% end %>
+    </div>
+    </div>
+  </div>
+</div>

@@ -1,17 +1,11 @@
-<h1>Check Consultations</h1>
+<h1>Treatment for <%= @treatment.treatment_for %></h1>
 <div class="card-deck-wrapper">
   <div class="card-deck">
-    <%= render @consultation %>
-    <%= link_to "Heal", new_consultation_treatment_path(@consultation), class: "btn-btn-primary" %>
+    <%= render @treatment %>
     <div class="medium-9 columns comments_form">
       <%= render partial: 'comments/form', locals: { commentable: @consultation } %>
       
         <%= render partial: 'comments/comment', collection: @comments, locals: { commentable: @consultation } %>
-
-      <% if !@treatment.nil? %>
-      <%= render partial: "treatments/treatment", object: @treatment, as: 'treatment' %>
-      <% end %>
-
 
     </div>
   </div>
