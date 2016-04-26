@@ -32,10 +32,14 @@ class ConsultationsController < ApplicationController
 
   def show
     @consultation = Consultation.find(params[:id])
+    # Change @users to @user and check relevant views
     @users = User.where(id: @consultation.user_id)
     @doctor = User.where(id: @consultation.doctor_id)
     @comments = @consultation.comments
-    @treatment = @consultation.treatment
+    unless !@consultation.treatment
+      @treatment = @consultation.treatment
+      @category = TreatmentType.find(@treatment.treatment_type_id)
+    end
   end
 
   def create

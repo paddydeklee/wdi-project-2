@@ -6,6 +6,7 @@ class Treatment < ActiveRecord::Base
 
   def accept!
       self.accepted = 1
+      @treatment.consultation.status = "Treatment Accepted"
       self.save
   end
 end

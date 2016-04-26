@@ -9,9 +9,10 @@
         <%= render partial: 'comments/comment', collection: @comments, locals: { commentable: @consultation } %>
 
       <% if !@treatment.nil? %>
-      <%= render partial: "treatments/treatment", object: @treatment, as: 'treatment' %>
+        <%= render partial: "treatments/treatment", object: @treatment, as: 'treatment' %>
+      <% else %>
+        <p>Treatment presciption pending</p>
       <% end %>
-
 
     </div>
   </div>

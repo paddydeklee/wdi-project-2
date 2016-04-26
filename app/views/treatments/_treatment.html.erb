@@ -3,9 +3,8 @@
   <div class="card">
   <div class="row">
     <div class="image medium-3 columns"> 
-
-    <h4><%= treatment.treatment_type_id %></h4>
-      <span class="title"><%= treatment.treatment_type_id %></span>
+      <h4><%= treatment.treatment_name %></h4>
+      <%= image_tag(@category.image_path) %>
     </div>
     <div class="content medium-9 columns">
       <p>Here are the details of the treatment that was recommended.</p>
@@ -17,7 +16,7 @@
       <p class="card-text"><small class="text-muted">Added <%= distance_of_time_in_words(Time.now, treatment.created_at) %> ago</small></p>
     </div>
     <div class="action">
-    <% if current_user.role == "patient" %>
+    <% if current_user.role != "doctor" %>
     <%= link_to "Accept", accept_treatment_path(treatment), class: "btn btn-success" %>
     <% else %>
     <% end %>

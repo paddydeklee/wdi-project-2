@@ -11,6 +11,7 @@ class TreatmentsController < ApplicationController
     @treatment = Treatment.new(treatment_params)
     @treatment.consultation_id = @consultation.id
     @treatment.patient_id = @consultation.user_id
+    @treatment.doctor_id = @consultation.doctor_id
 
     if @treatment.save
       flash[:success] = "Your treatment was made successfully"
@@ -24,10 +25,10 @@ class TreatmentsController < ApplicationController
   def show
   end
 
-  def inbox
+  def pending_treatments
   end
 
-  def outbox
+  def doctor_pending_treatments
   end
 
   def accept

@@ -13,9 +13,7 @@
       <ul class="right">
 
 
-      <li class="nav-item">
-        <%= link_to "Pending", pending_treatments_path, class: "nav-link" %>
-      </li>
+
 
         <% if user_signed_in? %>
           <% if current_user.image.present? %>
@@ -29,9 +27,15 @@
 
               <li><%= link_to "My Cases (active)", cases_as_doctor_path %></li> 
               <li><%= link_to "Unnassigned", unassigned_path %></li> 
+              <li>
+                <%= link_to "Pending", doctor_pending_treatments_path, class: "nav-link" %>
+              </li>
               
             <% end %>
             <% if current_user.role == "patient" %>
+            <li>
+              <%= link_to "Pending", pending_treatments_path, class: "nav-link" %>
+            </li>
 
               <li><%= link_to "My Cases (patient)", cases_as_patient_path %></li> 
               

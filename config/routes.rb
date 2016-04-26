@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   get "/outbox", to: "enquiries#outbox"
 
   get "/pending_treatments", to: "treatments#pending_treatments"
+  get "/doctor_pending_treatments", to: "treatments#doctor_pending_treatments"
 
   resources :enquiries, only: [] do 
     member do
@@ -32,6 +33,12 @@ Rails.application.routes.draw do
     member do
       get "accept"
     end
+  end
+
+  resources :treatment, only: [] do 
+      member do
+          get "accept"
+      end
   end
 
   resources :comments, only: [:create, :destroy]
