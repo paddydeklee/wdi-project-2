@@ -2,7 +2,7 @@
 
 
 <!-- <div class="row"> -->
-  <div class="medium-2 columns healbutton">
+  <div class="medium-3 columns healbutton">
     
     <% if !@treatment.nil? %>
     <%= render partial: "treatments/treatment", object: @treatment, as: 'treatment' %>
@@ -33,13 +33,13 @@
     </div>
   </div>
 
-  <div class="medium-8 columns">
+  <div class="medium-7 columns">
   <div class="card-deck-wrapper rounded">
     <div class="card-deck">
         <div class="card whitebg">
           <div class="row">
             <div class="content medium-12 columns topper">
-              <p class="biggerp"><%= @consultation.type_of %>
+              <p class="biggerp">Consultation
                 <span class="right"><%= @consultation.created_at.strftime("%d/%m/%y")%><span></p>
                 </div>
                 <div class="image medium-3 columns"> 
@@ -49,14 +49,16 @@
                 <div class="content medium-9 columns">
 
 
-                  <% if @consultation.doctor %>
+                <p class="card-text">This is an <span class="strong green"><%= @consultation.type_of.downcase %></span> consultation is <% if @consultation.doctor %>
 
-                  <p class="card-text">Assigned to: <%= @consultation.doctor.username %></p>
-
+                  <p class="card-text">assigned to <% if current_user.role == "doctor" %> you <% else %> <%= @consultation.doctor.username %></p>
                   <% end %>
 
+                  <% end %></p>
+                  
 
-                  <p class="card-text">Focus area: <%= @consultation.type_of %></p>
+
+                  
                   <p class="card-text"><%= @consultation.brief %></p>
                   <p class="card-text">Status: <%= @consultation.status %></p>
                   <p class="card-text"><small class="text-muted">Added <%= distance_of_time_in_words(Time.now, @consultation.created_at) %> ago</small></p>
@@ -79,11 +81,11 @@
               </div>
             </div>      
 
-            <div class="medium-12 columns comments_form">
+            
               <%= render partial: 'comments/form', locals: { commentable: @consultation } %>
 
               <%= render partial: 'comments/comment', collection: @comments, locals: { commentable: @consultation } %>
-            </div>
+         
 
           </div>
         </div>
