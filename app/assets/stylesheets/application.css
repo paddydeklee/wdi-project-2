@@ -13,8 +13,13 @@
  *= require_tree .
  *= require_self
  *= require foundation_and_overrides
+ *= require style.css.scss
+
 
  */
+
+
+
  header img {
    height: 2.2rem;
    width: 2.2rem;
@@ -33,13 +38,9 @@
 
  @import url(//fonts.googleapis.com/css?family=Roboto:400,500,300,100,700,900);
 
- html,body { // for demo only
-   background: #FAFAFA;
- }
+
 
  @import url(//fonts.googleapis.com/css?family=Roboto:400,500,300,100,700,900);
- html, body {
-   background: #FAFAFA; }
 
  .card {
    font-family: 'Roboto', sans-serif;

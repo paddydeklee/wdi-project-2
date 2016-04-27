@@ -23,7 +23,7 @@ class ConsultationsController < ApplicationController
     @consultation.accept!
 
     flash[:success] = "You accepted an consultation! Please get in touch with the patient ASAP"
-    redirect_to consultations_path
+    redirect_to cases_as_doctor_path
   end
 
   def new

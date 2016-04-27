@@ -82,13 +82,13 @@ e1 = Enquiry.create!(
                          sender_id: u1.id,
                          receiver_id: u5.id)
 
-tt1 = TreatmentType.create!(name: "Surgery", image_path: "surgery.png")
+tt1 = TreatmentType.create!(name: "Surgery", image_path: "treatments/Joint.png")
 
-tt2 = TreatmentType.create!(name: "Therapy", image_path: "therapy.png")
+tt2 = TreatmentType.create!(name: "Therapy", image_path: "treatments/Respiratory.png")
 
-tt3 = TreatmentType.create!(name: "Medicine", image_path: "medicine.png")
+tt3 = TreatmentType.create!(name: "Medicine", image_path: "treatments/Drugs.png")
 
-tt4 = TreatmentType.create!(name: "Other", image_path: "surgery.png")
+tt4 = TreatmentType.create!(name: "Other", image_path: "treatments/surgery.png")
 
 t1 = Treatment.create!(consultation_id: c1.id,
                          treatment_for: "This patients bones are wack. They need replacing asap. It's a miracle they have lasted this long",

@@ -17,3 +17,40 @@
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
+
+
+
+
+
+
+
+// $(document).foundation({
+//   accordion: {
+//     toggleable: false
+//   }
+// });
+
+// function accordionAnimation(accordion){
+//   var $this = $(accordion);
+//   var $link = $this.find('.accordion-navigation > a');
+  
+//   $this.find('.content.active').css('width', $this.find('.content.active').children().outerHeight());
+  
+//   $link.on('click', function(){
+//     console.log($this.find('.content.active').attr('id'));
+//     if( $(this).attr('href') == '#' + $this.find('.content.active').attr('id') ) {
+//       console.log('if');
+//       $(this).next().css('width', 0);
+//     } else {
+//       console.log('else');
+//       $this.find('.content.active').css('width', 0);
+//       $(this).next().css('width', $(this).next().children().innerHeight());
+//     }
+    
+//   });
+// };
+
+// $(document).ready(function() {
+//   accordionAnimation($('.accordion.animated'));
+// });
+
