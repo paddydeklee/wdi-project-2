@@ -2,22 +2,21 @@
 <div class="medium-12 columns">
   <div class="card">
   <div class="row">
-    <div class="image medium-3 columns"> 
-      <h4><%= treatment.treatment_name %></h4>
-      <%= image_tag(@category.image_path) %>
+    <div class="image medium-1 columns"> 
+      <%= image_tag(TreatmentType.find(treatment.treatment_type_id).image_path, class: "treatment-icon") %>
     </div>
     <div class="content medium-9 columns">
-      <p>Here are the details of the treatment that was recommended.</p>
+      <p class="text-muted">Here are the details of the treatment that was recommended.</p>
       
-      <p class="card-text">for: <%= treatment.treatment_for %></p>
-      <p class="card-text">Treatment name: <%= treatment.treatment_name %></p>
-      <p class="card-text">How much/often: <%= treatment.treatment_quantity %></p>
-      <p class="card-text">Accepted by patient? <% if treatment.accepted == nil %> <%= "No" %> <% else %><%= "Yes" %><% end %></p>
+      <p class="card-text"><span class="fieldname">for: </span><%= treatment.treatment_for %></p>
+      <p class="card-text"><span class="fieldname">Treatment name:</span> <%= treatment.treatment_name %></p>
+      <p class="card-text"><span class="fieldname">How much/often:</span> <%= treatment.treatment_quantity %></p>
+      <p class="card-text"><span class="fieldname">Accepted by patient?</span> <% if treatment.accepted == nil %> <%= "No" %> <% else %><%= "Yes" %><% end %></p>
       <p class="card-text"><small class="text-muted">Added <%= distance_of_time_in_words(Time.now, treatment.created_at) %> ago</small></p>
     </div>
     <div class="action">
     <% if current_user.role != "doctor" %>
-    <%= link_to "Accept", accept_treatment_path(treatment), class: "btn btn-success" %>
+    <%= link_to "Accept", accept_treatment_path(treatment), class: "btn btn-success btn-heal" %>
     <% else %>
     <% end %>
     </div>

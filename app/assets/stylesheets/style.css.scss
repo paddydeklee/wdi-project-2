@@ -2,6 +2,9 @@ body{
   background-image: url(asset-path("pw_pattern.png"));
 }
 
+.backgreen{
+  background-color: #248774;
+}
 
 .topper{
   background-color: #248774;
@@ -13,14 +16,53 @@ body{
 }
 
 li{
-list-style-type: none;  
+  list-style-type: none;  
 }
 
 .card-deck-wrapper .rounded .card-deck{
   border-radius: 20px;
 }
 
+.whitebg{
+  background-color: white;
+}
 
+span {
+ opacity: 0.5;
+}
+
+.fieldname {
+ opacity: 0.5;
+}
+
+.biggerp{
+  font-size: 1.1em;
+  line-height: 0.1;
+}
+
+.row .row {
+  margin-bottom: 20px;
+}
+
+hr.style15:after {
+  content: '\002665';
+  display: inline-block;
+  position: relative;
+  top: -15px;
+  padding: 0 10px;
+  background: #f0f0f0;
+  color: #8c8b8b;
+  font-size: 18px;
+}
+
+.healbutton{
+  float: right;
+}
+
+
+bordernone{
+  border-width: 0;
+}
 //custom vertical accordion
 // .accordion{
 //   min-height: 0;
@@ -28,13 +70,13 @@ list-style-type: none;
 //   height: 100%;
 //   margin: 0;
 //   padding: 0;
-  
+
 //   &-navigation{
 //     display: table-cell !important;
 //     position: relative;
 //     min-width: 0;
 //   }
-  
+
 //   &-navigation > a{
 //       left: 0;
 //       top: 0;
@@ -50,7 +92,7 @@ list-style-type: none;
 //       white-space: nowrap;
 //     }
 //   }
-  
+
 //   &-navigation .content{    
 //     min-height: 18.75rem;
 //     margin-left: 20px;

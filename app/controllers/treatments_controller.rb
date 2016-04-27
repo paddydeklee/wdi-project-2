@@ -29,6 +29,11 @@ class TreatmentsController < ApplicationController
   end
 
   def doctor_pending_treatments
+    # current_user.treatments_as_doctor
+    # byebug
+    # @doctor = current_user
+    # @pending_consultations = current_user.consultations_as_doctor.each do |consultation| consultation.treatment.accepted==true 
+    # end
   end
 
   def accept

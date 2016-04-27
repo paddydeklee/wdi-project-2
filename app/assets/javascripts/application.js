@@ -16,7 +16,19 @@
 //= require turbolinks
 //= require_tree .
 
-$(function(){ $(document).foundation(); });
+$(function(){ $(document).foundation()
+
+
+  $("textarea.expand").focus( function () {
+    console.log(this)
+      $(this).animate({ height: "4em" }, 500); 
+  });
+
+
+ }); // End of document.ready
+
+
+
 
 
 
