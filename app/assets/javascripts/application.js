@@ -19,11 +19,14 @@
 $(function(){ $(document).foundation()
 
 
-  $("textarea.expand").focus( function () {
-    console.log(this)
-      $(this).animate({ height: "4em" }, 500); 
-  });
+  // $("textarea.expand").focus( function () {
+  //   console.log(this)
+  //     $(this).animate({ height: "4em" }, 500); 
+  // });
 
+  var comment = $('.medium-12.columns.comment-right.right')
+
+  comment.css('text-align', 'right')
 
  }); // End of document.ready
 

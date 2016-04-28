@@ -1,3 +1,5 @@
+
+
 body{
   background-image: url(asset-path("pw_pattern.png"));
 }
@@ -7,12 +9,27 @@ body{
 }
 
 .topper{
-  background-color: #248774;
+  background-color: #00A29C;
   height: 1.75em;
   margin: 0 auto;
   font-size: 1.5em;
   color: white;
   padding: 0 20px;
+}
+
+.topperhighlight{
+  background-color: #06CBC4;
+  height: 1.75em;
+  margin: 0 auto;
+  font-size: 1.2em;
+  color: white;
+  padding: 0 20px;
+  text-align: center;
+  z-index: 3;
+
+  a{
+    color: #fff;
+  }
 }
 
 li{
@@ -33,11 +50,13 @@ span {
 
 .fieldname {
  opacity: 0.5;
+font-size: 0.5rem;
 }
 
 .biggerp{
   font-size: 1.1em;
   line-height: 0.1;
+  color: #efefef;
 }
 
 .row .row {
@@ -59,10 +78,11 @@ hr.style15:after {
   float: right;
 }
 
-
 bordernone{
   border-width: 0;
 }
+
+
 //custom vertical accordion
 // .accordion{
 //   min-height: 0;

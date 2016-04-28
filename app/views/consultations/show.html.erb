@@ -1,77 +1,187 @@
 
+<div class="medium-2 columns card">
+  <div class="content medium-12 columns topper">
+    <p class="card-text biggerp smaller">Patient</p>
+  </div>
+  <br>
+  <div class="container">
+    <div class="front bordernone">
+      <%= image_tag @consultation.user.image %>
+    </div>
+    <div class="back">
+      <h5>Patient details</h5>
+      <p class="card-text"><%= @consultation.user.first_name %></p>
+      <p class="card-text"><%= @consultation.user.last_name %></p>
+      <p class="card-text">User name: <%= @consultation.user.email %></p>
+    </div>
+  </div>
+  <div class="content medium-12 columns whitebg">
+    <p class="card-text biggerp smaller"><%= @consultation.user.first_name %></p>
+  </div>
+</div>
+
+
+
+<div class="medium-7 columns">
+  <div class="card-deck-wrapper rounded">
+    <div class="card-deck">
+      <div class="card whitebg">
+        <div class="consultation-row row">
+          <div class="content medium-12 columns topper">
+            <p class="biggerp">Consultation
+              <span class="right"><%= @consultation.created_at.strftime("%d/%m/%y")%></span>
+            </p>
+          </div>
+        </div>
+        <div class="consultation-row row">
+          <div class="medium-3 columns">
+            <%= image_tag @consultation.image %>
+          </div>
+          <div class="medium-9 columns">
+            <p class="card-text"><%= @consultation.brief %></p>
+          </div>
+        </div>  
+        <div class="consultation-row row">
+          <div class="medium-12 columns">
+          <hr>
+            <p class="card-text centerp" style="text-align: center">
+              This <span class="highlighted"><%= @consultation.type_of.downcase %></span> 
+              consultation is 
+
+              <% if @consultation.status == "pending" %>
+                <span class="right"> currently <%= @consultation.status %></span>
+              <% end %>
+
+              <% if @consultation.doctor %>
+              assigned to 
+                <% if current_user.role == "doctor" %> 
+                  you 
+                <% else %> 
+                  <%= @consultation.doctor.username %>
+                <% end %>
+              </p>
+              <% end %>
+          </div> <!-- End of medium-12 columns -->
+        </div> <!-- End of consultation-row row -->
+
+        <div class="consultation-row row">
+          <div class="medium-12 columns">
+          <%= render partial: 'comments/form', locals: { commentable: @consultation } %>
+          </div>
+        </div>
+
+        <div class="consultation-row row">
+          
+          <%= render partial: 'comments/comment', collection: @comments, locals: { commentable: @consultation } %>
+          
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+  <div class="card-deck-wrapper rounded">
+    <div class="card-deck">
+      <div class="card whitebg">
+        <div class="consultation-row row">
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+<div class="medium-3 columns treatment-card">
+
+  <% if !@treatment.nil? %>
+  <%= render partial: "treatments/treatment", object: @treatment, as: 'treatment' %>
+  <% else %>
+  <%= link_to "Heal", new_consultation_treatment_path(@consultation), class: "button btn-btn-primary" %>
+  <p class="centerp">Treatment presciption pending</p>
+  <% end %>
+
+</div>
+
+
+
+<hr>
+<hr>
+<hr>
+
+
+
+
 
 
 <!-- <div class="row"> -->
-  <div class="medium-3 columns healbutton">
-    
-    <% if !@treatment.nil? %>
-    <%= render partial: "treatments/treatment", object: @treatment, as: 'treatment' %>
-    <% else %>
-    <%= link_to "Heal", new_consultation_treatment_path(@consultation), class: "button btn-btn-primary" %>
-    <p>Treatment presciption pending</p>
-    <% end %>
-  </div>
-  
-  <div class="card medium-2 columns">
-    <div class="content medium-12 columns topper">
-      <p class="card-text biggerp smaller">Patient</p>
-    </div>
-    <br>
-    <div class="container">
-      <div class="front bordernone">
-        <%= image_tag @consultation.user.image %>
-      </div>
-      <div class="back">
-        <h5>Patient details</h5>
-        <p class="card-text"><%= @consultation.user.first_name %></p>
-        <p class="card-text"><%= @consultation.user.last_name %></p>
-        <p class="card-text">User name: <%= @consultation.user.email %></p>
-      </div>
-    </div>
-    <div class="content medium-12 columns whitebg">
-      <p class="card-text biggerp smaller"><%= @consultation.user.first_name %></p>
-    </div>
-  </div>
+<div class="medium-3 columns healbutton">
 
-  <div class="medium-7 columns">
+  <% if !@treatment.nil? %>
+  <%= render partial: "treatments/treatment", object: @treatment, as: 'treatment' %>
+  <% else %>
+  <%= link_to "Heal", new_consultation_treatment_path(@consultation), class: "button btn-btn-primary" %>
+  <p>Treatment presciption pending</p>
+  <% end %>
+</div>
+
+<div class="card medium-2 columns">
+  <div class="content medium-12 columns topper">
+    <p class="card-text biggerp smaller">Patient</p>
+  </div>
+  <br>
+  <div class="container">
+    <div class="front bordernone">
+      <%= image_tag @consultation.user.image %>
+    </div>
+    <div class="back">
+      <h5>Patient details</h5>
+      <p class="card-text"><%= @consultation.user.first_name %></p>
+      <p class="card-text"><%= @consultation.user.last_name %></p>
+      <p class="card-text">User name: <%= @consultation.user.email %></p>
+    </div>
+  </div>
+  <div class="content medium-12 columns whitebg">
+    <p class="card-text biggerp smaller"><%= @consultation.user.first_name %></p>
+  </div>
+</div>
+
+<div class="medium-7 columns">
   <div class="card-deck-wrapper rounded">
     <div class="card-deck">
-        <div class="card whitebg">
-          <div class="row">
-            <div class="content medium-12 columns topper">
-              <p class="biggerp">Consultation
-                <span class="right"><%= @consultation.created_at.strftime("%d/%m/%y")%><span></p>
-                </div>
-                <div class="image medium-3 columns"> 
-                  <%= image_tag @consultation.image %>
-                  <span class="title"></span>
-                </div>
-                <div class="content medium-9 columns">
+      <div class="card whitebg">
 
 
-                <p class="card-text">This is an <span class="strong green"><%= @consultation.type_of.downcase %></span> consultation is <% if @consultation.doctor %>
+        <div class="row">
+          <div class="content medium-12 columns topper">
+            <p class="biggerp">Consultation
 
-                  <p class="card-text">assigned to <% if current_user.role == "doctor" %> you <% else %> <%= @consultation.doctor.username %></p>
+
+              <span class="right"><%= @consultation.created_at.strftime("%d/%m/%y")%><span></p>
+              </div>
+              <div class="image medium-3 columns"> 
+                <%= image_tag @consultation.image %>
+                <span class="title"></span>
+              </div>
+              <div class="content medium-9 columns">
+                <p class="card-text"><%= @consultation.brief %></p>
+                <hr>
+
+                <p class="card-text">This <span class="strong green"><%= @consultation.type_of.downcase %></span> consultation is <% if @consultation.status == "pending" %>
+                  <span class="right"> currently <%= @consultation.status %></span>
+                  <% end %><% if @consultation.doctor %>
+
+                  assigned to <% if current_user.role == "doctor" %> you <% else %> <%= @consultation.doctor.username %></p>
                   <% end %>
 
                   <% end %></p>
-                  
-
-
-                  
-                  <p class="card-text"><%= @consultation.brief %></p>
-                  <p class="card-text">Status: <%= @consultation.status %></p>
                   <p class="card-text"><small class="text-muted">Added <%= distance_of_time_in_words(Time.now, @consultation.created_at) %> ago</small></p>
 
-                  <% if @consultation.status != "pending" %>
-                  <% end %>
-
-
-                  
 
                   <% if current_user.role == "doctor" && @consultation.doctor_id == nil %>
                   <div class="action">
-                    <%= link_to "Accept", accept_consultation_path(@consultation), class: "button btn btn-success" %>
+                    <%= link_to "Accept as doctor", accept_consultation_path(@consultation), class: "button btn btn-success" %>
                   </div>
                   <% end %>
 
@@ -82,10 +192,10 @@
             </div>      
 
             
-              <%= render partial: 'comments/form', locals: { commentable: @consultation } %>
+            <%= render partial: 'comments/form', locals: { commentable: @consultation } %>
 
-              <%= render partial: 'comments/comment', collection: @comments, locals: { commentable: @consultation } %>
-         
+            <%= render partial: 'comments/comment', collection: @comments, locals: { commentable: @consultation } %>
+
 
           </div>
         </div>
@@ -98,6 +208,5 @@
 
 
 
-  <!-- </div> -->
-
+    <!-- </div> -->
 
