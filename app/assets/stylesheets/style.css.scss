@@ -1,11 +1,36 @@
 
-
 body{
+  font-family: 'Lato', sans-serif;
+}
+
+body.loggedin{
   background-image: url(asset-path("pw_pattern.png"));
 }
 
+header.loggedin{
+  color:  #00A29C;
+}
+
+
+
+
+.mainlogo{
+  margin: 20px;
+}
+.mainlogo.green{
+  margin: 60px;
+  
+}
+
 body.homepage{
-  background-color: green;
+  
+
+  background: #1D976C; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to bottom, #1D976C , #00503E); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom, #1D976C , #00503E); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+          
+  text-align: center;
+  color: white;
 }
 
 .backgreen{

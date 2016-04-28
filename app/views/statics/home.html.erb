@@ -1,33 +1,32 @@
-
-<div class="jumbotron">
-  <h1 class="display-3">Welcome to Heal</h1>
-  <p class="lead">The fastest and most reliable way to get healed</p>
-  <hr class="m-y-2">
-  <p>Connecting You With The Best Doctors In The World, Instantly</p>
-  <p class="lead">
-    <%= link_to "Browse Doctors", users_path, class: "btn btn-primary btn-lg", role: "button" %>
-  </p>
-</div>
-
+<% if user_signed_in? %>
 <div class="row">
-  <ul class="accordion animated" data-accordion>
-    <li class="accordion-navigation">
-      <a href="#panel1a"><span>Accordion 1</span></a>
-      <div id="panel1a" class="content active">
-        <div>Panel 1. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
-      </div>
+  <div class="mainlogo green content medium-4 columns">
+    <%= image_tag("sage-logo")%>
+    </div>
+    <div class="content medium-5 columns">  
+    <li class="centerme lower accept-btn">
+    <%= link_to "Add a case", new_consultation_path, class: "btn btn-primary btn-lg", role: "button" %>
+    </li>      
+    <li class="centerme lower accept-btn">
+    <%= link_to "Search for a doctor", doctors_path, class: "btn btn-primary btn-lg", role: "button" %>
     </li>
-    <li class="accordion-navigation">
-      <a href="#panel2a"><span>Accordion 2</span></a>
-      <div id="panel2a" class="content">
-        <div>Panel 2. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
-      </div>
-    </li>
-    <li class="accordion-navigation">
-      <a href="#panel3a"><span>Accordion 3</span></a>
-      <div id="panel3a" class="content">
-        <div>Panel 3. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
-      </div>
-    </li>
-  </ul>
+  </div>
 </div>
+
+
+
+
+    <%else%>
+
+    <div class="mainlogo">
+      <%= image_tag("rsz_sage-logo_1")%>
+    </div>
+    <%end%>
+
+    <br>
+    <br>
+    <br>
+
+    <p style="padding-left: 10px;">
+      <%= link_to "our doctors", doctors_path, class: "btn btn-primary btn-lg", role: "button" %>
+    </p>

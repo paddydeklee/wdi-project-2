@@ -639,7 +639,7 @@ $include-html-global-classes: $include-html-classes;
 // $input-focus-bg-color: scale-color($white, $lightness: -2%);
 // $input-border-color: scale-color($white, $lightness: -20%);
 // $input-focus-border-color: scale-color($white, $lightness: -40%);
-// $input-border-style: solid;
+$input-border-style: none;
 // $input-border-width: 1px;
 // $input-border-radius: $global-radius;
 // $input-disabled-bg: $gainsboro;
@@ -1393,7 +1393,7 @@ $include-html-global-classes: $include-html-classes;
 // $topbar-title-font-size: rem-calc(17);
 
 // Set the link colors and styles for top-level nav
- $topbar-link-color: #06CBC4;
+ $topbar-link-color: #efefef;
 // $topbar-link-color-hover: $white;
  $topbar-link-color-active: red; // $white;
 // $topbar-link-color-active-hover: $white;
@@ -1401,7 +1401,7 @@ $include-html-global-classes: $include-html-classes;
 // $topbar-link-font-size: rem-calc(13);
 //$topbar-link-hover-lightness: -10%; // Darken by 10%
 $topbar-link-bg: transparent;//$topbar-bg;
-// $topbar-link-bg-hover: -10%; // $oil;
+ $topbar-link-bg-hover: transparent; // $oil;
  $topbar-link-bg-color-hover: white;//$charcoal;
 // $topbar-link-bg-active: $primary-color;
 // $topbar-link-bg-active-hover: scale-color($primary-color, $lightness: -14%);
