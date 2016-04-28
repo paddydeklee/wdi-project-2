@@ -4,6 +4,10 @@ body{
   background-image: url(asset-path("pw_pattern.png"));
 }
 
+body.homepage{
+  background-color: green;
+}
+
 .backgreen{
   background-color: #248774;
 }

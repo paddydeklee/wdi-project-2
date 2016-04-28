@@ -1,5 +1,5 @@
 class TreatmentsController < ApplicationController
-
+  before_action :set_treatment, only: [:show, :accept]
 
   def new
     @consultation = Consultation.find(params[:consultation_id])
@@ -36,21 +36,22 @@ class TreatmentsController < ApplicationController
     # end
   end
 
-  def accept
-      @treatment.accept!
-      flash[:success] = "You let your doctor know you accepted the treatment!"
-      redirect_to :back
-  end
 
+
+  def accept
+    @treatment.accept!
+    flash[:success] = "You let your doctor know you accepted the treatment!"
+    redirect_to :back
+  end
 
   private
-  def set_treatment
-    @treatment = Treatment.find(params[:id])
-  end
+    def set_treatment
+      @treatment = Treatment.find(params[:id])
+    end
 
-  def treatment_params
-    params.require(:treatment).permit(:consultation_id, :treatment_type_id, :treatment_name, :treatment_for, :treatment_quantity)
-  end
+    def treatment_params
+      params.require(:treatment).permit(:consultation_id, :treatment_type_id, :treatment_name, :treatment_for, :treatment_quantity)
+    end
 
 
 end

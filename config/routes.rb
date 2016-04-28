@@ -35,10 +35,10 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :treatment, only: [] do 
-      member do
-          get "accept"
-      end
+  resources :treatments, only: [] do 
+    member do
+      get "accept"
+    end
   end
 
   resources :comments, only: [:create, :destroy]

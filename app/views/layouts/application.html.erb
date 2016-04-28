@@ -11,8 +11,12 @@
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
   </head>
+<% if !current_user %>
+  <body class="homepage">
+  <% else %>
 
-  <body>
+  <body class="loggedin">
+  <% end %>
 
 
   <%= render "header" %>
