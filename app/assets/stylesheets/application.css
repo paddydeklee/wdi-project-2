@@ -177,7 +177,7 @@ height: 100%;
    overflow: hidden;
    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
    color: #272727;
-   margin: 10px 0px;
+   margin: 0px 0px;
    border-radius: 2px; }
    .card .title {
      line-height: 3rem;
@@ -193,7 +193,7 @@ height: 100%;
      border-top: 1px solid rgba(160, 160, 160, 0.2);
      padding: 1.3rem; }
    .card a {
-     color: #fff;
+     color: #00A29C;
      margin-top: 0.1rem;
      transition: color 0.3s ease;
      text-transform: uppercase;
@@ -213,7 +213,7 @@ height: 100%;
        .card {
          position: relative;
          padding: 0;
-         margin: 0;
+         margin-bottom: 20px;
          -webkit-perspective: 5000;
          perspective: 5000; 
        }
@@ -266,7 +266,7 @@ height: 100%;
        }
 
        .card .container .back {
-         padding: 1em; 
+         padding: 0.5em; 
        }
 
        .card.square .container {
@@ -287,11 +287,18 @@ height: 100%;
 .comment_patient{
   background-color: rgba(100,140,200,0.1);
   position: right;
+  margin-right: 20px;
+  margin-top: 20px;
+  padding: 10px;
+
 }
 
-.comment_doctor{
-  background-color: red;
+.comment-right{
+  background-color: rgba(100,140,200,0.5);
   position: left;
+  margin-right: 20px;
+  margin-top: 20px;
+  padding: 10px;
 }
 
 
@@ -328,7 +335,35 @@ centerp{
 font-size: 1.2rem;
 }
 
+
+
 .hrstyle1{
   margin: 10px 20px;
 }
 
+.accept-btn{
+ border-width: 2px;
+ border-style: solid;
+ border-color: #00A29C;
+ color: #00A29C;
+ background-color: transparent;
+ padding: 1rem 3rem;
+
+}
+
+.smaller{
+
+}
+
+.card-deck-wrapper .rounded{
+  margin-top: 20px;
+}
+
+.comments-form-row.consultation-row.row {
+  margin-bottom: 0;
+}
+
+.floatright{
+  float: right;
+  padding:10px;
+}

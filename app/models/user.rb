@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   ##QUESTION - SHOULD THESE BE HAS AND BELONGS TO MANY?
   ##QUESTION - SHOULD THE CLASS NAME BE USER or CASE?
-  # has_many :consultations 
+  has_many :consultations 
   has_many :consultations_as_doctor, class_name: "Consultation", foreign_key: "doctor_id"
   has_many :consultations_as_patient, class_name: "Consultation", foreign_key: "user_id"
 

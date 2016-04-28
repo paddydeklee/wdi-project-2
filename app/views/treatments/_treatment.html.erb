@@ -23,7 +23,7 @@
       <%= treatment.treatment_quantity %>
       </p>
       <hr class="hrstyle1">
-      <p class="card-text"><small class="text-muted">Added <%= distance_of_time_in_words(Time.now, treatment.created_at) %> ago</small></p>
+      <p class="card-text"><p class="fieldname">How much/often:</p> <small class="text-muted">Added <%= distance_of_time_in_words(Time.now, treatment.created_at) %> ago</small>
       <p class="card-text">
 
       <hr class="hrstyle1">
@@ -34,13 +34,14 @@
       
     </div>
     </div>
-    <div class="topperhighlight">
     <% if current_user.role != "doctor" %>
-    <%= link_to "Accept", accept_treatment_path(treatment), class: "btn btn-success btn-heal" %>
-    <% else %>
-    <% end %>
-    </div>
+    <div class="topperhighlight">
 
+    <%= link_to "Accept", accept_treatment_path(treatment), class: "btn btn-success btn-heal accept-btn" %>
+    <% else %>
+
+    </div>
+    <% end %>
   </div>
 
 

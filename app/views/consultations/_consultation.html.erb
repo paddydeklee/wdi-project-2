@@ -27,12 +27,13 @@
         <% end %>
       </div>
       <div class="action">
+      <%= link_to "View case", consultation_path(consultation), class: "btn btn-success highlighted" %>
         <% if current_user.role == "doctor" && consultation.doctor_id == nil %>
 
-        <%= link_to "Accept", accept_consultation_path(consultation), class: "button radius btn btn-success" %>
+        <%= link_to "Accept", accept_consultation_path(consultation), class: "button radius btn btn-success accept-btn" %>
         
         <% end %>
-        <%= link_to "View case", consultation_path(consultation), class: "btn btn-success" %>
+        
 
       </div>
 
