@@ -28,7 +28,7 @@ class EnquiriesController < ApplicationController
     @user = User.where(id: @enquiry.sender_id)
 
     @consultation = Consultation.new
-    @consultation.doctor    = current_user
+    @consultation.doctor_id = current_user.id
     @consultation.user_id   = @enquiry.user_id
     @consultation.type_of   = @enquiry.type_of
     @consultation.brief     = @enquiry.brief
@@ -36,6 +36,7 @@ class EnquiriesController < ApplicationController
     @consultation.status    = @enquiry.status
     
     @consultation.save
+    @enquiry.destroy!
   end
 
   # need to do a reject method for the user where the case goes back to the case pool
@@ -46,6 +47,7 @@ class EnquiriesController < ApplicationController
 
   def outbox
   end
+
 
   def accept
       @enquiry.accept!

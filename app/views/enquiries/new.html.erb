@@ -1,5 +1,5 @@
-<h1>New Enquiry</h1>
-<h3><%= @user.username %></h3>
+<h1>New Enquiry for <%= @user.username %></h1>
+
 <%= form_for [@user, @enquiry] do |f| %>
   <% if @enquiry.errors.any? %>
     <% for message in @enquiry.errors.full_messages %>

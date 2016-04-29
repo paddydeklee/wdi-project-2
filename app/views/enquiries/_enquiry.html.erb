@@ -5,22 +5,29 @@
     <%= image_tag enquiry.image %>
       <span class="title"><%= enquiry.try(:type_of) %></span>
     </div>
-    <div class="content medium-9 columns">
-      <p>Here are the details of the enquiry that was made.</p>
-      <p class="card-text">Sent by: <%= enquiry.sender_id %></p>
-      <p class="card-text">Sent to: <%= enquiry.receiver_id %></p>
+    <div class="content medium-6 columns">
+    <li><p class="card-text left">Sent by: <%= enquiry.sender_id %></p>
+    <p class="card-text right">Sent to: <%= enquiry.receiver_id %></p></li>
+
+      <hr>
+      
       <p class="card-text">Focus area: <%= enquiry.type_of %></p>
-      <p class="card-text">Status: <%= enquiry.status %></p>
+      
       <p class="card-text">Brief description: <%= enquiry.brief %></p>
+      <p class="card-text">Status: <%= enquiry.status %></p>
       <p class="card-text"><small class="text-muted">Added <%= distance_of_time_in_words(Time.now, enquiry.created_at) %> ago</small></p>
     </div>
+    <div class="content medium-3 columns">
     <div class="action">
     <% if current_page?(action: "outbox") %>
       <%= link_to "Cancel", cancel_enquiry_path(enquiry), class: "btn btn-secondary" %>
     <% else %>
-      <%= link_to "Reject", reject_enquiry_path(enquiry), class: "btn btn-danger" %>
-      <%= link_to "Accept", accept_enquiry_path(enquiry), class: "btn btn-success" %>
+    <p><%= link_to "Accept", accept_enquiry_path(enquiry), class: "btn btn-success accept-btn"%></p>
+    <hr></hr>
+      <p style="margin-bottom: 40px;"><%= link_to "Reject", reject_enquiry_path(enquiry), class: "btn btn-danger accept-btn" %></p>
+      
     <% end %>
+    </div>
     </div>
     </div>
   </div>
