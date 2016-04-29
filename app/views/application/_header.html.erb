@@ -24,9 +24,10 @@
 
 
             <% if current_user.role == "doctor" %>
-
+            <li><%= link_to "Unnassigned", unassigned_path %></li>
+            <li></li>
               <li><%= link_to "My Cases (active)", cases_as_doctor_path %></li> 
-              <li><%= link_to "Unnassigned", unassigned_path %></li> 
+              
               <li>
                 <%= link_to "Pending", doctor_pending_treatments_path, class: "nav-link" %>
               </li>

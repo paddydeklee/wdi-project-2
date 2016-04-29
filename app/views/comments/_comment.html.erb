@@ -3,20 +3,12 @@
   <% else %>
   <div class="medium-offset-8 columns comment-right right">
     <% end %>
-
-
-          <div class="consultation-row row">
-            <li>
-              <ul>
-                
-                <p><%= comment.comment %></p>
-                <li class="floatright"><small class="text-muted"> --<%= comment.user.try(:first_name) %> <%= comment.user.try(:last_name) %></small></li>
-              </ul>
-            </li> 
-
-
+    <div class="consultation-row row">
+      <li>
+        <ul> 
+          <p><%= comment.comment %></p>
+          <li class="floatright"><small class="text-muted"> --<%= comment.user.try(:first_name) %> <%= comment.user.try(:last_name) %></small></li>
+        </ul>
+      </li> 
     </div>
   </div>
-
-
-

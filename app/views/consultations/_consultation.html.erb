@@ -1,44 +1,72 @@
-<div>
-<div class="row split">
-<div class="medium-9 columns">
-  <div class="card whitebg">
-    <div class="row">
-      <div class="content medium-12 columns topper">
-        <p class="biggerp"><%= consultation.type_of %> consultation <span class="right"><%= consultation.created_at.strftime("%d/%m/%y")%><span></p>
-        
+
+
+
+<div class="medium-12 columns" style="margin-bottom: 15px;">
+
+
+  <div class="card-deck-wrapper rounded">
+    <div class="card-deck">
+      <div class="card whitebg">
+        <div class="row">
+          <div class="content medium-12 columns topper">
+            <p class="biggerp" style="margin: 0 15px;"><%= consultation.type_of %> consultation <span class="right"><%= consultation.created_at.strftime("%d/%m/%y")%></span>
+            </p>
+          </div>
+        </div>
+        <div class="consultation-row row">
+          <div class="medium-3 columns">
+            <%= image_tag consultation.image %>
+          </div>
+          <div class="medium-6 columns">
+            <p class="card-text"><%= consultation.brief %></p>
+          </div>
+          <div class="medium-3 columns">
+          <%= link_to "View case", consultation_path(consultation), class: "button radius btn btn-success accept-btn left" %>
+          <% if current_user.role == "doctor" && consultation.doctor_id == nil %>
+
+            <%= link_to "Take case", accept_consultation_path(consultation), class: "button radius btn btn-success accept-btn left" %>
+                      
+            <% end %>
+          </div>
+
+        </div>  
+        <div class="consultation-row row">
+          <div class="medium-12 columns">
+            <hr>
+
+
+            <p class="card-text centerp" style="text-align: center">
+
+            
+
+
+            
+
+
+              <span>This <span class="highlighted"><%= consultation.type_of.downcase %></span> 
+              consultation is 
+
+              <% if consultation.status == "pending" %>
+               currently <%= consultation.status %>
+              <% end %>
+
+              <% if consultation.doctor %>
+              assigned to 
+              <% if current_user.role == "doctor" %> 
+              you 
+              <% else %> 
+              <%= consultation.doctor.username %>
+              <% end %>
+              </span>
+            </p>
+            <% end %>
+            <p class="card-text centerp"><span class="fieldname"><span class="text-muted">Added </span><%= distance_of_time_in_words(Time.now, consultation.created_at) %> ago</span></p>
+
+              
+
+            </div>
+          </div> <!-- End of medium-12 columns -->
+        </div> <!-- End of consultation-row row -->
       </div>
-      <div class="image medium-3 columns"> 
-        <%= image_tag consultation.image %>
-        <span class="title"></span>
-      </div>
-      <div class="content medium-9 columns">
-
-
-
-        <p class="card-text"><%= consultation.brief %></p>
-        
-        <p class="card-text"><span class="fieldname">Focus area: </span><%= consultation.type_of %></p>
-        <p class="card-text"><span class="fieldname">Status: </span><%= consultation.status %></p>
-        <p class="card-text"><span class="fieldname"><span class="text-muted">Added </span><%= distance_of_time_in_words(Time.now, consultation.created_at) %> ago</span></p>
-        <% if consultation.doctor %>
-
-        <p class="card-text">Assigned to: <%= consultation.doctor.username %></p>
-
-        <% end %>
-      </div>
-      <div class="action">
-      <%= link_to "View case", consultation_path(consultation), class: "btn btn-success highlighted accept-btn right" %>
-        <% if current_user.role == "doctor" && consultation.doctor_id == nil %>
-
-        <%= link_to "Accept", accept_consultation_path(consultation), class: "button radius btn btn-success accept-btn" %>
-        
-        <% end %>
-        
-
-      </div>
-
     </div>
   </div>
-</div>
-</div>
-</div>

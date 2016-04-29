@@ -19,10 +19,13 @@
 $(function(){ $(document).foundation()
 
 
-  // $("textarea.expand").focus( function () {
-  //   console.log(this)
-  //     $(this).animate({ height: "4em" }, 500); 
-  // });
+  $(function(){
+    $("body").hide().fadeIn("slow");
+  })
+
+  $(function(){
+    $(".flashes").hide().fadeOut("slow");
+  })
 
   var comment = $('.medium-12.columns.comment-right.right')
 
