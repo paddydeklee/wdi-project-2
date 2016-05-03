@@ -39,11 +39,10 @@
               <%= link_to "Search for a doctor", doctors_path, class: "btn btn-primary btn-lg", role: "button" %>
             </li>
 
-            <li class="dropdownicon"><a href="#" data-dropdown="hover1" data-options="is_hover:true; hover_timeout:5000">Cases</a></li>
-            <ul id="hover1" class="f-dropdown" data-dropdown-content>
+            
             <li><%= link_to "All", cases_as_patient_path %></li> 
             <li><%= link_to "Pending", pending_treatments_path, class: "nav-link" %></li>
-            </ul>
+
 
 
 

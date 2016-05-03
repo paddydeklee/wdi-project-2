@@ -15,7 +15,7 @@ class EnquiriesController < ApplicationController
       
       if @enquiry.save
           flash[:success] = "Your enquiry was made successfully. Your doctor will be in touch shortly to set up an appointment"
-          redirect_to users_path
+          redirect_to consultations_path
       else
           flash[:danger] = "Your enquiry was not sent"
           redirect_to users_path
