@@ -7,7 +7,7 @@ gem 'omniauth-facebook', '3.0.0'
 gem 'acts_as_commentable', '4.0.2'
 
 gem 'font-awesome-sass', '~> 4.5.0'
-gem 'fog'
+
 
 gem 'foundation-rails', '5.5.1.2'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
