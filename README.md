@@ -2,7 +2,7 @@
 
 ***Second project for WDI London***
 
-![Alt text](/app/assets/images/home.png?raw=true "Coverphoto")
+[![Alt text](/app/assets/images/home.png?raw=true "Coverphoto")](https://protected-refuge-68983.herokuapp.com/)
 
 ## Introduction
 
@@ -23,5 +23,4 @@ Once an appointment is made, doctors converse with patients and when a diagnosis
 
 ## Find the app here 
 
-[I'm an inline-style link](https://protected-refuge-68983.herokuapp.com/)
-
+[Sage Healthcare](https://protected-refuge-68983.herokuapp.com/)
